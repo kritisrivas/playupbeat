@@ -6,7 +6,6 @@ function Tournament(props){
     const auth = useContext(AuthContext);
     const [isRegistered, setisRegistered] = useState(false);
     const [regDate, setRegDate] = useState();
-
     useEffect(() => {
         async function checkUserRegistered() {
           if(auth.isLoggedIn){
@@ -50,11 +49,11 @@ function Tournament(props){
         <div>
           <h3>{props.title}</h3>
           <p>{props.location}</p>
-          <p>{props.date}</p>
+          <p>{(new Date(props.date)).toLocaleDateString()}</p>
         </div>
         {auth.isLoggedIn && (
           <div className="child">
-            {isRegistered ? <p>You've registered in this event on {regDate}</p> : 
+            {isRegistered ? <p>You've registered in this event on {(new Date(regDate)).toLocaleDateString()}</p> : 
             <button onClick={handleRegisterClick}>Register</button>}
           </div>
         )}

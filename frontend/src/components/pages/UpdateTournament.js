@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Navbar from "../common/Navbar";
+import Footer from "../common/Footer";
 import { AuthContext } from "../context/auth-context";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -64,7 +65,7 @@ const UpdateTournament = () => {
   };
 
   return (
-    <div>
+    <div className="bodyDiv">
       <Navbar />
       <div className="event-form-container">
         <h2>Update Tournament</h2>
@@ -113,6 +114,7 @@ const UpdateTournament = () => {
           </form>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -5,10 +5,10 @@ import Footer from "../common/Footer";
 
 function About() {
   return (
-    <div>
+    <div className="bodyDiv">
       <Navbar/>
       <AboutDesc />
-      {/* <Footer image={image} /> */}
+      <Footer/>
     </div>
   );
 }

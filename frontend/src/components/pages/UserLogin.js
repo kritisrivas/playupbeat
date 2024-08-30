@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 
 import Navbar from '../common/Navbar';
+import Footer from "../common/Footer";
 import { AuthContext } from '../context/auth-context';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,7 +47,7 @@ const UserLogin = () => {
     setIsLoginMode(prevMode => !prevMode);
   }
   return (
-    <div>
+    <div className="bodyDiv">
       <Navbar />
       <div className="login-container">
         <h2>User Login</h2>
@@ -87,6 +88,7 @@ const UserLogin = () => {
           <button className="switchLoginBtn" onClick={switchModeHandler}>Switch to {isLoginMode ? 'Signup' : 'Login'}</button>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 };

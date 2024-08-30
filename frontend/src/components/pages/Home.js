@@ -6,11 +6,11 @@ import Footer from "../common/Footer";
 
 function Home() {
     return (
-      <div>
+      <div className="bodyDiv">
         <Navbar />
         <ImageSlider />
         <Tournaments showMyTournament="false"/>
-        {/*<Footer image={image} /> */}
+        <Footer/>
       </div>
     );
 }

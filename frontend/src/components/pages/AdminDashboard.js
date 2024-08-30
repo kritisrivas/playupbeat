@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "../common/Navbar";
 import { AuthContext } from "../context/auth-context";
 import { useNavigate } from "react-router-dom";
+import Footer from "../common/Footer";
 
 function AdminDashboard() {
   const auth = useContext(AuthContext);
@@ -56,7 +57,7 @@ function AdminDashboard() {
   };
 
   return (
-    <div>
+    <div className="bodyDiv">
       <Navbar />
       <div className="tournamentContainer">
         <h2>Your Tournaments</h2>
@@ -67,7 +68,7 @@ function AdminDashboard() {
               <div>
                 <h3>{tournament.title}</h3>
                 <p>{tournament.location}</p>
-                <p>{tournament.date}</p>
+                <p>{(new Date(tournament.date)).toLocaleDateString()}</p>
               </div>
               <div className="admin-child">
                 <button
@@ -88,6 +89,7 @@ function AdminDashboard() {
           );
         })}
       </div>
+      <Footer/>
     </div>
   );
 }

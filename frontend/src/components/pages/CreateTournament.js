@@ -5,6 +5,7 @@ import Navbar from "../common/Navbar";
 import { AuthContext } from "../context/auth-context";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Footer from "../common/Footer";
 
 function CreateTournament() {
   const auth = useContext(AuthContext);
@@ -50,7 +51,7 @@ function CreateTournament() {
   };
 
   return (
-    <div>
+    <div className="bodyDiv">
       <Navbar />
       <div className="event-form-container">
         <h2>Create Tournament</h2>
@@ -98,6 +99,7 @@ function CreateTournament() {
           <p>{tournamentCreatedMsg}</p>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 }
