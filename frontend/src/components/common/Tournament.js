@@ -14,7 +14,7 @@ function Tournament(props){
                   params: { userId: auth.userId, tournamentId: props.id}
               }
           try {
-            const response = await axios.get('http://localhost:5000/api/registrations/check-registration', config);
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/registrations/check-registration`, config);
             setisRegistered(response.data.isRegistered);
             setRegDate(response.data.regDate);
           } catch (err) {
@@ -29,7 +29,7 @@ function Tournament(props){
         try {
             const userId = auth.userId;
             const tournamentId = props.id;
-            const response = await axios.post('http://localhost:5000/api/registrations/register', 
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/registrations/register`, 
               {userId, tournamentId},
               {
                   headers: {

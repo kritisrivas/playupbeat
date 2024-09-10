@@ -1,18 +1,20 @@
 // import logo from './logo.svg';
-import React from 'react';
+import React, {Suspense} from 'react';
 import "./App.css";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import UserLogin from './components/pages/UserLogin';
-import AdminLogin from './components/pages/AdminLogin';
-import UserDashboard from './components/pages/UserDashboard';
-import AdminDashboard from './components/pages/AdminDashboard';
-import CreateTournament from './components/pages/CreateTournament';
-import UpdateTournament from './components/pages/UpdateTournament';
 import { AuthContext } from './components/context/auth-context';
 import { useAuth } from './components/hooks/auth-hook';
+
+const UserLogin = React.lazy(() => import('./components/pages/UserLogin'));
+const AdminLogin = React.lazy(() => import('./components/pages/AdminLogin'));
+const UserDashboard = React.lazy(() => import('./components/pages/UserDashboard'));
+const AdminDashboard = React.lazy(() => import('./components/pages/AdminDashboard'));
+const CreateTournament = React.lazy(() => import('./components/pages/CreateTournament'));
+const UpdateTournament = React.lazy(() => import('./components/pages/UpdateTournament'));
+
 function App() {
 
   const {token, userId, userRole, login, logout} = useAuth();
@@ -28,6 +30,7 @@ function App() {
       logout: logout
     }}>
     <Router>
+      <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route exact={true} path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -38,6 +41,7 @@ function App() {
         <Route path='/admin/createTournament' element={<CreateTournament />} />
         <Route path='/admin/updateTournament' element={<UpdateTournament />} />
        </Routes>
+       </Suspense>
     </Router>
     </AuthContext.Provider>
   );

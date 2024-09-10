@@ -31,7 +31,7 @@ function CreateTournament() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/tournaments', 
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/tournaments`, 
         {...formData, creator: auth.userId},
         {
             headers: {

@@ -16,7 +16,7 @@ function AdminDashboard() {
       if (auth.isLoggedIn) {
         try {
           const response = await axios.get(
-            `http://localhost:5000/api/tournaments/user/${auth.userId}`,
+            `${process.env.REACT_APP_BACKEND_URL}/tournaments/user/${auth.userId}`,
             {
               headers: {
                 Authorization: `Bearer ${auth.token}`,
@@ -35,7 +35,7 @@ function AdminDashboard() {
   const deleteTournament = async (tournamentId) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/tournaments/${tournamentId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/tournaments/${tournamentId}`,
         {
           headers: {
             Authorization: `Bearer ${auth.token}`,

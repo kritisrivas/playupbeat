@@ -19,7 +19,7 @@ const UserLogin = () => {
     event.preventDefault();
     if(isLoginMode){
       try {
-        const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/login`, { email, password });
         if(response.data.role === 'user'){
         auth.login(response.data.userId, response.data.role, response.data.token)
         navigate('/dashboard'); // Redirect to user dashboard
@@ -34,7 +34,7 @@ const UserLogin = () => {
     else{
       try {
         const role = 'user';
-        const response = await axios.post('http://localhost:5000/api/users/signup', { name, email, password, role });
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/signup`, { name, email, password, role });
         auth.login(response.data.userId, response.data.role, response.data.token)
         navigate('/dashboard'); // Redirect to user dashboard
       } catch (err) {

@@ -15,7 +15,7 @@ function Tournaments(props) {
     useEffect(()=>{
         async function fetchTournaments() {
             try{
-                const response = await axios.get('http://localhost:5000/api/tournaments')
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/tournaments`)
                 setTournamentsData(response.data.tournaments)
             }
             catch(err){
@@ -33,7 +33,7 @@ function Tournaments(props) {
                 params: { userId: auth.userId}
             }
         try {
-          const response = await axios.get('http://localhost:5000/api/registrations/user-tournaments', config);
+          const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/registrations/user-tournaments`, config);
           setRegisteredTournaments(response.data.tournaments);
         } catch (err) {
           console.log("Unable to fetch tournaments", err);

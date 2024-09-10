@@ -24,7 +24,7 @@ const UpdateTournament = () => {
     const fetchTournamentById = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/tournaments/${tournamentId}`
+          `${process.env.REACT_APP_BACKEND_URL}/tournaments/${tournamentId}`
         );
         setLoadedTournament(response.data.tournament);
         setFormData({
@@ -50,7 +50,7 @@ const UpdateTournament = () => {
     e.preventDefault();
     try {
       await axios.patch(
-        `http://localhost:5000/api/tournaments/${tournamentId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/tournaments/${tournamentId}`,
         { ...formData, creator: auth.userId },
         {
           headers: {
