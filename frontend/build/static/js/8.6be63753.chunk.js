@@ -1,2 +1,0 @@
-(this.webpackJsonpplayupbeat=this.webpackJsonpplayupbeat||[]).push([[8],{140:function(t,e,s){"use strict";s.r(e);var a=s(0),c=s(11),n=s(25),u=s(8),b=s(12),o=s(2);e.default=function(){const t=Object(a.useContext)(u.a);return Object(o.jsxs)("div",{className:"bodyDiv",children:[Object(o.jsx)(c.a,{}),t.isLoggedIn&&Object(o.jsx)(n.a,{showMyTournament:"true"}),Object(o.jsx)(b.a,{})]})}}}]);
-//# sourceMappingURL=8.6be63753.chunk.js.map
