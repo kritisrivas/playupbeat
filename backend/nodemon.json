@@ -1,8 +1,0 @@
-{
-    "env": {
-        "DB_USER": "kritisrivastava28",
-        "DB_PASSWORD": "zTCRBUqWdy3BR7KU",
-        "DB_NAME": "playupbeat",
-        "JWT_KEY": "mysecret_jwt_playupbeat"
-    }
-}
